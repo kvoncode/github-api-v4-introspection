@@ -1,0 +1,1 @@
+{"dependencies":{"next":"^9.1.7","react":"^16.12.0","react-dom":"^16.12.0"},"scripts":{"dev":"next","build":"next build","start":"next start"},"name":"","version":"","readme":"ERROR: No README data found!","_id":"@"}
