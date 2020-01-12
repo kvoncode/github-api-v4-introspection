@@ -1,7 +1,17 @@
 import "normalize.css";
+// import "./styles.css";
+import styled from "styled-components";
 
-function HomePage() {
-  return <div>Welcome to Next.js!</div>;
-}
+const StyledMain = styled.div`
+  min-height: calc(100vh - 100px);
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-export default HomePage;
+const Main = () => {
+  return <StyledMain >Main!!!</StyledMain>;
+};
+
+export default Main;
