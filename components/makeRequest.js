@@ -28,22 +28,21 @@ export const makeRequest = ({ token }) => {
     cache: new InMemoryCache()
   });
 
-  client
-    .query({
-      query: gql`
-        query {
-          __schema {
-            types {
+  return client.query({
+    query: gql`
+      query {
+        __schema {
+          types {
+            name
+            kind
+            description
+            fields {
               name
-              kind
-              description
-              fields {
-                name
-              }
             }
           }
         }
-      `
-    })
-    .then(result => console.log(result));
+      }
+    `
+  });
+  // .then(result => console.log(result));
 };

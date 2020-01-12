@@ -11,10 +11,10 @@ const StyledInput = styled.input`
 
 const StyledButton = styled.button`
   color: #ec8c26;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: black;
   /* border: 1px solid #b5b5b5; */
-  border-radius: 5rem;
+  border-radius: 1rem;
   margin: 1rem;
   font-family: "Josefin Sans", sans-serif;
 `;
@@ -25,7 +25,7 @@ export const TokenForm = ({ controls }) => {
   return (
     <>
       <StyledInput value={token} onChange={handleChange}></StyledInput>
-      <StyledButton onClick={handleClick}>Request Introspection</StyledButton>
+      <StyledButton onClick={handleClick}>Send Request</StyledButton>
     </>
   );
 };

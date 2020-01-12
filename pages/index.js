@@ -35,9 +35,15 @@ const Main = () => {
     }, [token]);
   };
 
+  const [response, setResponse] = useState(null);
+
   const handleClick = () => {
     // console.log(token);
-    makeRequest({ token });
+    // makeRequest({ token }).then(result => setResponse(JSON.stringify(result)));
+    makeRequest({ token }).then(result => {
+      console.log(result);
+      setResponse(true);
+    });
   };
 
   return (
@@ -45,7 +51,7 @@ const Main = () => {
       <Header></Header>
       <TokenForm controls={{ token, handleChange, handleClick }}></TokenForm>
 
-      <ResponseView></ResponseView>
+      <ResponseView sucess={response}></ResponseView>
     </StyledMain>
   );
 };
