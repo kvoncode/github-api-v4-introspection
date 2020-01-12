@@ -2,6 +2,7 @@ import "normalize.css";
 // import "./styles.css";
 import styled from "styled-components";
 
+import { useState } from "react";
 import { ResponseView } from "../components/ResponseView";
 
 const StyledMain = styled.div`
@@ -14,9 +15,15 @@ const StyledMain = styled.div`
 `;
 
 const Main = () => {
+  const [token, setToken] = useState("Insert token");
+
+  const handleChange = e => {
+    setToken(e.target.value);
+  };
+
   return (
     <StyledMain>
-      <input></input>
+      <input value={token} onChange={handleChange}></input>
       <button>Request Introspection</button>
       <ResponseView></ResponseView>
     </StyledMain>
