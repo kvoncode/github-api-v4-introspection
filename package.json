@@ -4,8 +4,10 @@
     "apollo-boost": "^0.4.7",
     "graphql": "^14.5.8",
     "next": "^9.1.7",
+    "normalize.css": "^8.0.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "dev": "next",
