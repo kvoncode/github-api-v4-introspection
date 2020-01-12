@@ -3,14 +3,16 @@ import styled from "styled-components";
 
 import { useState, useEffect } from "react";
 import { ResponseView } from "../components/ResponseView";
+import { Header } from "../components/Header";
 
 import { makeRequest } from "../components/makeRequest";
 
 const StyledMain = styled.div`
-  min-height: calc(100vh - 100px);
+  background-color: black;
+  min-height: 100vh;
   min-width: 100vw;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
 `;
@@ -39,6 +41,7 @@ const Main = () => {
 
   return (
     <StyledMain>
+      <Header></Header>
       <input value={token} onChange={handleChange}></input>
       <button onClick={handleClick}>Request Introspection</button>
       <ResponseView></ResponseView>
