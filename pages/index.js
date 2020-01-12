@@ -1,7 +1,7 @@
 import "normalize.css";
 import styled from "styled-components";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ResponseView } from "../components/ResponseView";
 
 import { makeRequest } from "../components/makeRequest";
@@ -16,15 +16,25 @@ const StyledMain = styled.div`
 `;
 
 const Main = () => {
-  const [token, setToken] = useState("Insert token");
+  const msg = "No tokens in localStorage";
+
+  const [token, setToken] = useState(msg);
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token") || msg);
+  });
 
   const handleChange = e => {
-    setToken(e.target.value);
+    const token = e.target.value;
+    setToken(token);
+    useEffect(() => {
+      localStorage.setItem("token", token);
+    }, [token]);
   };
 
   const handleClick = () => {
-    console.log(token);
-    makeRequest({token});
+    // console.log(token);
+    makeRequest({ token });
   };
 
   return (
