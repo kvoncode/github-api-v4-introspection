@@ -1,13 +1,10 @@
 import "normalize.css";
-// import "./styles.css";
 import styled from "styled-components";
 
 import { useState } from "react";
 import { ResponseView } from "../components/ResponseView";
 
-import ApolloClient from "apollo-boost";
-import { gql } from "apollo-boost";
-import fetch from "node-fetch";
+import { makeRequest } from "../components/makeRequest";
 
 const StyledMain = styled.div`
   min-height: calc(100vh - 100px);
@@ -18,25 +15,6 @@ const StyledMain = styled.div`
   flex-direction: column;
 `;
 
-const url = "https://api.spacex.land/graphql/";
-
-const client = new ApolloClient({
-  uri: url,
-  fetch: fetch
-});
-
-client
-  .query({
-    query: gql`
-      {
-        company {
-          ceo
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
-
 const Main = () => {
   const [token, setToken] = useState("Insert token");
 
@@ -46,6 +24,7 @@ const Main = () => {
 
   const handleClick = () => {
     console.log(token);
+    makeRequest({token});
   };
 
   return (
