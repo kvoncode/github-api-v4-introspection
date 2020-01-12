@@ -11,7 +11,11 @@ const StyledMain = styled.div`
 `;
 
 const Main = () => {
-  return <StyledMain >Main!!!</StyledMain>;
+  return (
+    <StyledMain>
+      <input></input>
+    </StyledMain>
+  );
 };
 
 export default Main;
