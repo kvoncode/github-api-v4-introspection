@@ -21,10 +21,14 @@ const Main = () => {
     setToken(e.target.value);
   };
 
+  const handleClick = () => {
+    console.log(token);
+  };
+
   return (
     <StyledMain>
       <input value={token} onChange={handleChange}></input>
-      <button>Request Introspection</button>
+      <button onClick={handleClick}>Request Introspection</button>
       <ResponseView></ResponseView>
     </StyledMain>
   );
