@@ -5,7 +5,8 @@ const StyledResponse = styled.div`
   border: 1px solid #b5b5b5;
   padding: 0.5rem;
   min-height: 100px;
-  min-width: 300px;
+  min-width: 500px;
+  margin: 1rem;
   font-family: "Josefin Sans", sans-serif;
 `;
 

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { ResponseView } from "../components/ResponseView";
 import { Header } from "../components/Header";
+import { TokenForm } from "../components/TokenForm";
 
 import { makeRequest } from "../components/makeRequest";
 
@@ -42,8 +43,8 @@ const Main = () => {
   return (
     <StyledMain>
       <Header></Header>
-      <input value={token} onChange={handleChange}></input>
-      <button onClick={handleClick}>Request Introspection</button>
+      <TokenForm controls={{ token, handleChange, handleClick }}></TokenForm>
+
       <ResponseView></ResponseView>
     </StyledMain>
   );

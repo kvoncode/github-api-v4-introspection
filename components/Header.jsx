@@ -14,6 +14,8 @@ const StyledInstruction = styled.p`
   font-family: "Josefin Sans", sans-serif;
 `;
 
+const title = "Github Graphql API Introspection";
+
 const text = `
 Paste Github API token to the form below to make GraphQL request.
 Requests are not possible without API token 
@@ -29,7 +31,7 @@ export const Header = () => {
           rel="stylesheet"
         ></link>
       </Head>
-      <StyledTitle>Github Graphql API Introspection</StyledTitle>
+      <StyledTitle>{title}</StyledTitle>
       <StyledInstruction>{text}</StyledInstruction>
     </div>
   );
