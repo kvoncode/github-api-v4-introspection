@@ -2,7 +2,7 @@ import "normalize.css";
 import styled from "styled-components";
 
 import { useState, useEffect } from "react";
-import { ResponseView } from "../components/ResponseView";
+import { SucessView, ErrorView } from "../components/ResponseView";
 import { Header } from "../components/Header";
 import { TokenForm } from "../components/TokenForm";
 
@@ -19,20 +19,17 @@ const StyledMain = styled.div`
 `;
 
 const Main = () => {
-  const msg = "No tokens in localStorage";
+  const msg = "";
 
   const [token, setToken] = useState(msg);
 
   useEffect(() => {
     setToken(localStorage.getItem("token") || msg);
-  });
+  }, []);
 
   const handleChange = e => {
     const token = e.target.value;
     setToken(token);
-    useEffect(() => {
-      localStorage.setItem("token", token);
-    }, [token]);
   };
 
   const [response, setResponse] = useState(null);
@@ -40,18 +37,26 @@ const Main = () => {
   const handleClick = () => {
     // console.log(token);
     // makeRequest({ token }).then(result => setResponse(JSON.stringify(result)));
-    makeRequest({ token }).then(result => {
-      console.log(result);
-      setResponse(true);
-    });
+    makeRequest({ token })
+      .then(result => {
+        console.log("Response from server", result);
+        setResponse(true);
+        localStorage.setItem("token", token);
+      })
+      .catch(() => {
+        setResponse(false);
+      });
   };
 
   return (
     <StyledMain>
       <Header></Header>
       <TokenForm controls={{ token, handleChange, handleClick }}></TokenForm>
-
-      <ResponseView sucess={response}></ResponseView>
+      {null === response ? null : response ? (
+        <SucessView></SucessView>
+      ) : (
+        <ErrorView></ErrorView>
+      )}
     </StyledMain>
   );
 };

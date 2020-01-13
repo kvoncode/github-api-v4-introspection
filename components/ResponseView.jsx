@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckCircle,
+  faExclamationTriangle
+} from "@fortawesome/free-solid-svg-icons";
 
 const StyledResponse = styled.div`
   color: #ec8c26;
@@ -22,14 +25,23 @@ const StyledIcon = styled(FontAwesomeIcon)`
   margin-right: 0.3rem;
 `;
 
-export const ResponseView = ({ sucess }) => {
-  return sucess ? (
+export const SucessView = () => {
+  return (
     <StyledResponse>
       <StyledSucess>
         <StyledIcon icon={faCheckCircle}></StyledIcon>
-        Sucess
+        Sucess. Check out Dev console for server response
       </StyledSucess>
-      Check out Dev console for server response
     </StyledResponse>
-  ) : null;
+  );
+};
+
+const StyledError = styled(StyledResponse)``;
+
+export const ErrorView = () => {
+  return (
+    <StyledError>
+      <StyledIcon icon={faExclamationTriangle}></StyledIcon> Wrong API token. Reload page to use last valid token
+    </StyledError>
+  );
 };
