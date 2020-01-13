@@ -14,7 +14,7 @@ const StyledInstruction = styled.p`
   font-family: "Josefin Sans", sans-serif;
 `;
 
-const title = "Github Graphql API Introspection";
+const title = "Github Graphql API Type Introspection";
 
 const text = `
 Paste Github API token to the form below to make GraphQL request.

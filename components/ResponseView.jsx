@@ -14,15 +14,22 @@ const StyledResponse = styled.div`
 
 const StyledSucess = styled.div`
   height: 1rem;
+  margin-bottom: 0.5rem;
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  height: 0.8rem;
+  margin-right: 0.3rem;
 `;
 
 export const ResponseView = ({ sucess }) => {
   return sucess ? (
     <StyledResponse>
       <StyledSucess>
-        <FontAwesomeIcon icon={faCheckCircle} />
+        <StyledIcon icon={faCheckCircle}></StyledIcon>
+        Sucess
       </StyledSucess>
-      Sucess
+      Check out Dev console for server response
     </StyledResponse>
   ) : null;
 };
