@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 const StyledResponse = styled.div`
   color: #ec8c26;
@@ -10,6 +12,17 @@ const StyledResponse = styled.div`
   font-family: "Josefin Sans", sans-serif;
 `;
 
+const StyledSucess = styled.div`
+  height: 1rem;
+`;
+
 export const ResponseView = ({ sucess }) => {
-  return sucess ? <StyledResponse>Sucess</StyledResponse> : null;
+  return sucess ? (
+    <StyledResponse>
+      <StyledSucess>
+        <FontAwesomeIcon icon={faCheckCircle} />
+      </StyledSucess>
+      Sucess
+    </StyledResponse>
+  ) : null;
 };
