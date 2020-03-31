@@ -9,7 +9,7 @@
     "apollo-link-context": "^1.0.19",
     "apollo-link-http": "^1.5.16",
     "graphql": "^14.5.8",
-    "next": "^9.1.7",
+    "next": "^9.3.2",
     "node-fetch": "^2.6.0",
     "normalize.css": "^8.0.1",
     "react": "^16.12.0",
